@@ -8,6 +8,7 @@ class ModelTests(TestCase):
         """
         Test creating a new user with an email is successful
         """
+
         email = 'test@gmail.com'
         password = 'Testpass123'
         user = get_user_model().objects.create_user(
@@ -22,6 +23,7 @@ class ModelTests(TestCase):
         """
         Test the email for a new user is normalized
         """
+
         email = 'test@SHAIEINAV.COM'
         user = get_user_model().objects.create_user(
             email,
@@ -34,6 +36,7 @@ class ModelTests(TestCase):
         """
         Test creating user with no email raises error
         """
+
         with self.assertRaises(ValueError):
             get_user_model().objects.create_user(None, 'test123')
 
@@ -41,6 +44,7 @@ class ModelTests(TestCase):
         """
         Test creating a new superuser
         """
+
         user = get_user_model().objects.create_superuser(
             'test@shaieinav.com',
             'test123'
